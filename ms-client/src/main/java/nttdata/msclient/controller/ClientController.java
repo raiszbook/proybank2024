@@ -39,12 +39,7 @@ public class ClientController {
     // Actualizar un cliente existente
     @PutMapping("/{id}")
     public Mono<Client> updateClient(@PathVariable String id, @RequestBody Client client) {
-        return clientService.getClientById(id)
-                .flatMap(existingClient -> {
-                    existingClient.setLastName(client.getLastName());
-                    existingClient.setAge(client.getAge());
-                    return clientService.createClient(existingClient);
-                });
+        return clientService.updateClient(id, client);
     }
 
     // Borrar un cliente
