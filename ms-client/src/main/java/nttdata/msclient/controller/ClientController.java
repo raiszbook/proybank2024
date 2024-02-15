@@ -3,7 +3,6 @@ package nttdata.msclient.controller;
 
 import nttdata.msclient.business.ClientService;
 import nttdata.msclient.model.Client;
-import nttdata.msclient.repository.ClientRepository;
 import nttdata.msproduct.model.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
