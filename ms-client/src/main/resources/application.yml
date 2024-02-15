@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: ms-client
+
+server:
+  port: 9051
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/client-read-db
