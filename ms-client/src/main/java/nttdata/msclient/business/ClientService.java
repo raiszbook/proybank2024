@@ -1,8 +1,6 @@
 package nttdata.msclient.business;
 
 import nttdata.msclient.model.Client;
-import nttdata.msclient.model.ClientType;
-import nttdata.msclient.model.IdentificationType;
 import nttdata.msclient.repository.ClientRepository;
 import nttdata.msproduct.model.Account;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,12 +26,11 @@ public class ClientService {
         this.webClient = webClientBuilder.baseUrl("https://localhost:8080/ms-client").build();
     }
 
-    public Mono<List<Account>> getClientAccounts(Long clientId){
+    public Flux<Account> getClientAccounts(Long clientId){
         return webClient.get()
                 .uri("/accounts/client/{clientId}",clientId)
                 .retrieve()
-                .bodyToFlux(Account.class)
-                .collectList();
+                .bodyToFlux(Account.class);
     }
 
 

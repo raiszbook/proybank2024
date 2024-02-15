@@ -4,6 +4,7 @@ package nttdata.msclient.controller;
 import nttdata.msclient.business.ClientService;
 import nttdata.msclient.model.Client;
 import nttdata.msclient.repository.ClientRepository;
+import nttdata.msproduct.model.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -46,5 +47,10 @@ public class ClientController {
     @DeleteMapping("/{id}")
     public Mono<Void> deleteClient(@PathVariable String id) {
         return clientService.deleteClient(id);
+    }
+
+    @GetMapping("/{id}/accounts")
+    public Flux<Account> getClientAccounts(@PathVariable Long id){
+        return clientService.getClientAccounts(id);
     }
 }
